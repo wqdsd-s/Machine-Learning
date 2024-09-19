@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
 
-data=pd.read_csv('C:\\Users\\alex\\Downloads\\imports-85.csv')
+data=pd.read_csv('C:\\Users\\Downloads\\imports-85.csv')
 data['log_price']=np.log(data['price'])
 data['squared_price']=data['price']**2
 print(data)
@@ -29,7 +29,6 @@ for bodystyle,color in [('convertible','red'),('hardtop','blue'),('hatchback','y
 plt.xlabel("horsepower")
 plt.ylabel("log_price")
 plt.legend()
-plt.savefig(r'C:\\Users\\alex\\Desktop\\UCLAmachine\\1.5.png')
 plt.show()
 
 for bodystyle,color in [('convertible','red'),('hardtop','blue'),('hatchback','yellow'),('sedan','black'),('wagon','green')]:
@@ -39,7 +38,6 @@ for bodystyle,color in [('convertible','red'),('hardtop','blue'),('hatchback','y
 plt.xlabel("horsepower")
 plt.ylabel("squared_price")
 plt.legend()
-plt.savefig(r'C:\\Users\\alex\\Desktop\\UCLAmachine\\1.75.png')
 plt.show()
 
 
@@ -62,7 +60,6 @@ plt.plot(data['horsepower'][res2.fittedvalues.index],res2.fittedvalues,label='fi
 plt.xlabel("horsepower")
 plt.ylabel("log_price")
 plt.legend()
-plt.savefig(r'C:\\Users\\alex\\Desktop\\UCLAmachine\\2.png')
 plt.show()
 
 '''
@@ -74,7 +71,6 @@ pplot(data, x="horsepower", y="log_price",kind='qq',display_kws={"identity":Fals
 plt.scatter(data['horsepower'],data['city-mpg'],linewidths=.05)
 plt.xlabel("horsepower")
 plt.ylabel("city-mpg")
-plt.savefig(r'C:\\Users\\alex\\Desktop\\UCLAmachine\\3.png')
 plt.show()
 mod3 = sm.OLS(data['city-mpg'],data[['horsepower','cons']],missing='drop')
 res3=mod3.fit()
