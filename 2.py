@@ -5,7 +5,7 @@ from scipy.stats import chi2
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 
-data=pd.read_csv('C:\\Users\\alex\\Downloads\\LendingClub_LoanStats3a_v12.csv')
+data=pd.read_csv('C:\\Users\\Downloads\\LendingClub_LoanStats3a_v12.csv')
 print(data)
 data=data[data["loan_status"].apply(lambda x:x=='Fully Paid' or x=='Charged Off')]
 data['Default']=data["loan_status"].apply(lambda x:1 if x=='Charged Off' else 0)
