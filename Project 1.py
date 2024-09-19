@@ -23,8 +23,7 @@ plt.xlabel("horsepower")
 plt.ylabel("price")
 plt.legend()
 plt.show()
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 2/11
+
 In [ ]:
 When using squared price as dependent variable:
 In [ ]:
@@ -42,8 +41,7 @@ plt.xlabel("horsepower")
 plt.ylabel("squared_price")
 plt.legend()
 plt.show()
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 3/11
+
 From the scatter plots we can see: For convertible, hardtop and sedan bodystyle, their average prices seem to be higher than
 the other two bodystyle. Hatchback and wagon have the lowest average prices. Thus bodystyle appear to be relevant for prices, reg
 ardless of the effect of horsepower.
@@ -103,8 +101,7 @@ plt.scatter(data['horsepower'],data['city-mpg'],linewidths=.05)
 plt.xlabel("horsepower")
 plt.ylabel("city-mpg")
 plt.show()
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 5/11
+
 In [ ]:
 Results:
 ==============================================================================
@@ -132,6 +129,7 @@ From the regression results we can see: the coefficient of horsepower is negativ
 ty-mpg and horsepower, which is consistent with the plot. Also, horsepower is statistically significant, it's a significant indep
 endent variable for fuel efficiency. R2 is 64.6%, the model can still be improved by adding independent variables(second order va
 riable for example).
+
 Question 2
 In [4]:
 mod3 = sm.OLS(data['city-mpg'],data[['horsepower','cons']],missing='drop')
@@ -143,8 +141,7 @@ import numpy as np
 import seaborn as sns
 import scipy.stats as stats
 import statsmodels.api as sm
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 6/11
+
 In [5]:
 In [6]:
 In [7]:
@@ -198,8 +195,7 @@ stock_data = pd.read_csv("/Users/hriday/Downloads/StockRetAcct_DT.csv")
 stock_data
 stock_data['Excess Return']=np.exp(stock_data.lnAnnRet) - np.exp(stock_data.lnRf)
 stock_data['lnIssue'] = stock_data['lnIssue'] + np.random.normal(0,1/100,len(stock_data['lnIssue']))
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 7/11
+
 In [8]:
 In [9]:
 In [10]:
@@ -271,8 +267,7 @@ fit_reg=True,
 order = 5
 )
 ax.set(ylim=(0.07,0.15),title='Issuance bins vs. Excess Returns')
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 8/11
+
 The observed pattern is nonlinear, demonstrating that low issuance tends to result in higher returns, while higher
 issuance leads to lower returns, as anticipated. This observation holds significant implications. When a company issues
 new shares, it diminishes the ownership percentage of current shareholders. This dilution can directly impact earnings
@@ -304,8 +299,7 @@ p_value = stats.t.sf(abs(tstat), len(ts_results_df)) * 2
 print(" Lamda Hat for FAMA-Macbeth Model :",lamda_hat)
 print(" T-Statistic : ",tstat)
 print(" P-Value : ",p_value)
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 9/11
+
 In this context, the p-value holds statistical significance. The negative coefficient coupled with its statistical significance
 indicates that stocks exhibiting extreme issuance characteristics, such as those in Decile 10, typically yield lower
 expected returns compared to Decile 1 stocks. Consequently, a strategy may involve shorting Decile 10 stocks while going
@@ -325,8 +319,7 @@ import pandas as pd
 # Load the dataset
 stock_data = pd.read_csv("StockRetAcct_DT.csv")
 stock_data.head()
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 10/11
+
 In [4]:
 Out[4]:
 [ BMQuintile ExcessReturns
@@ -373,8 +366,7 @@ size_data = stock_data_cleaned[stock_data_cleaned['MEQuintile'] == size_q]
 bm_return_avg = size_data.groupby('BMQuintile')['ExcessReturns'].mean()
 plot_data.append(bm_return_avg.reset_index())
 plot_data
-4/8/24, 10:43 PM ML_Assignment-1 - Jupyter Notebook
-localhost:8888/notebooks/ML_Assignment-1.ipynb#Question-2 11/11
+
 In [5]:
 From these plots, we observe a general trend that within each size quintile, the relationship between book-to-market quintiles and average excess returns does not
 strictly follow a linear pattern. While in some size quintiles, there's a noticeable increase in average excess returns as we move to higher book-to-market quintiles, the
