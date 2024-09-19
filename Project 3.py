@@ -13,11 +13,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import ElasticNet
 from sklearn.metrics import mean_squared_error
 from sklearn import tree
-5/6/24, 4:21 PM HW5_DAML - Jupyter Notebook
-localhost:8888/notebooks/HW5_DAML.ipynb 2/7
+
 Q1
-5/6/24, 4:21 PM HW5_DAML - Jupyter Notebook
-localhost:8888/notebooks/HW5_DAML.ipynb 3/7
 In [ ]:
 df = pd.read_csv('housing.csv')
 # Function to simulate data for model a) and b)
@@ -90,8 +87,7 @@ for method in methods:
 plt.figure(figsize=(12, 6))
 plt.hist(results_a[method], bins=30, alpha=0.5, label='Model a)')
 plt.hist(results_b[method], bins=30, alpha=0.5, label='Model b)')
-5/6/24, 4:21 PM HW5_DAML - Jupyter Notebook
-localhost:8888/notebooks/HW5_DAML.ipynb 4/7
+
 Upon examination of the histograms, it is evident that the performance of all three methods—OLS regression, Random Forest, and XGBoost—is quite similar.
 This result was anticipated due to the linear relationship between the predictors (designated as Predictor 1 and Predictor 2) and the target variable (designated
 as Target). While OLS regression, being a linear model, might display slightly superior performance, Random Forest and XGBoost also yield competitive results
@@ -122,8 +118,7 @@ crim zn indus chas rm age dis rad tax ptratio lstat medv nox
 Out[49]:
 RandomForestRegressor(max_depth=10, max_features=11, n_estimators=250,
 random_state=97)
-In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook.
-On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.
+
 plt.title(f'Out-of-Sample MSE Histogram for {method}')
 plt.xlabel('Mean Squared Error')
 plt.ylabel('Frequency')
@@ -144,8 +139,7 @@ max_depth = 10,
 max_features = 11,
 random_state = 97)
 rf.fit(predictors_train, labels_train)
-5/6/24, 4:21 PM HW5_DAML - Jupyter Notebook
-localhost:8888/notebooks/HW5_DAML.ipynb 5/7
+
 In [ ]:
 In [ ]:
 In [ ]:
@@ -196,8 +190,7 @@ MSE_lm = np.mean(np.square((lm_prediction - labels_test)))
 # Compute pseudo r2
 PseudoR2 = 1 - MSE_lm / MSE_Baseline
 print("Pseudo R2 for linear regression is ", round(PseudoR2*100, 2), "%")
-5/6/24, 4:21 PM HW5_DAML - Jupyter Notebook
-localhost:8888/notebooks/HW5_DAML.ipynb 6/7
+
 In [ ]:
 (c) Repeat the exercise in part (a) using elastic net regression (l1_ratio=0.5). Use a cross-validation procedure to find an optimal lambda (alpha). For that
 exercise, split the training sample into quarters (i.e., the 4-fold cross-validation). Comment on the performance of the linear model relative to decision trees. In
@@ -255,8 +248,7 @@ color="r", align="center")
 plt.yticks(range(10), features_names[top_10_indices])
 plt.ylim([-1, 10])
 plt.show()
-5/6/24, 4:21 PM HW5_DAML - Jupyter Notebook
-localhost:8888/notebooks/HW5_DAML.ipynb 7/7
+
 In [ ]:
 It seems like the decision trees have higher accuracy over linear model in this case. Since the linear model is just in a straight line , it will have more
 error square around it, the decsiion trees capture each data point with more specific relationships
