@@ -1,3 +1,4 @@
+
 a.(i)
 data = pd.read_csv("LendingClub_LoanStats3a_v12.csv")
 a.(ii)
@@ -26,8 +27,7 @@ import matplotlib.pyplot as plt
 #read in data
 data=pd.read_csv('C:\\Users\\Downloads\\LendingClub_LoanStats3a_v12.csv')
 data=data[data["loan_status"].apply(lambda x:x=='Fully Paid' or x=='Charged Off')]
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 2/11
+
 Regression Result:
 Logit Regression Results
 =========================================================================
@@ -79,8 +79,7 @@ data['grade']=data["grade"].apply(grade_to_float)
 data['cons']=1
 model=sm.Logit(data['Default'],data[["grade",'cons']]).fit()
 print(model.summary())
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 3/11
+
 effect on default probability. It makes sense, since the higher
 grade is (more close to A), the lower default possibility.
 b.(ii)
@@ -105,8 +104,7 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 # show the legend
 plt.legend()
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 4/11
+
 From the ROC Curve we can see: The logistic line is above the
 random guess line, which indicates that the model perform better
 than a random guess.
@@ -132,8 +130,7 @@ print(profit_list)
 plt.annotate('maximum profit',(lgt_fpr[-2],lgt_tpr[-2]),xytext =(lgt_fpr[-2]-0.4,lg
 # show the plot
 plt.show()
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 5/11
+
 The best cutoff default probability is 0.0791, that is, when
 P<=0.0791, it don't default, otherwise it defaults.
 Plot:
@@ -158,8 +155,7 @@ features = loan_data[['loan_amnt', 'annual_inc']]
 target = loan_data['default']
 # Adding a constant to the feature set
 features = sm.add_constant(features, has_constant='add')
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 6/11
+
 Optimization terminated successfully.
 Current function value: 0.406186
 Iterations 6
@@ -208,8 +204,6 @@ result = logistic_model.fit()
 # Print the summary of the regression
 print(result.summary())
 In [ ]:
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 7/11
 response_rate lift
 quantile
 0 0.219849 1.584747
@@ -245,8 +239,7 @@ quantile
 7 0.425618
 8 0.452785
 9 0.389395 )
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/Downloads/Apr Assignment 3 (5).html 8/11
+
 from the Roc curves, we see that the dummy variables for term strucutre and rates had
 improved the distinguishing power of the model between default and non defaults
 In [26]: import pandas as pd
@@ -275,8 +268,7 @@ X_train_updated, X_test_updated, y_train_updated, y_test_updated = train_test_sp
 # Train the updated logistic regression model
 logistic_model_updated = sm.Logit(y_train_updated, X_train_updated)
 logistic_result_updated = logistic_model_updated.fit()
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 9/11
+
 Optimization terminated successfully.
 Current function value: 0.387066
 Iterations 7
@@ -315,8 +307,7 @@ quantile
 8 0.066583 0.479952
 9 0.035176 0.253559 )
 print(logistic_result_updated.summary())
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 10/11
+
 The ROC curve plotted for the updated model and the original 'grade' model shows
 that the updated logistic model performs significantly better, as evidenced by the
 higher area under the curve. The lift table for the updated model also indicates
@@ -336,8 +327,7 @@ logistic_model_extended = sm.Logit(y_train_extended, X_train_extended)
 logistic_result_extended = logistic_model_extended.fit()
 # Display the summary of the extended logistic regression model
 logistic_result_extended.summary()
-4/22/24, 11:47 PM Apr Assignment 3
-file:///C:/Users/alex/Downloads/Apr Assignment 3 (5).html 11/11
+
 Logit Regression Results
 Dep. Variable: default No. Observations: 31828
 Model: Logit Df Residuals: 31822
